@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { MessagesStore } from '../stores/messages.store';
+import { MessagesStore } from '../../stores/messages.store';
 
 @Component({
   selector: 'digital-team-exercise-messages',

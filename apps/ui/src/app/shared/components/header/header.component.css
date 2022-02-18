@@ -1,0 +1,34 @@
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  color: orange;
+}
+
+span {
+  padding-right: 2rem;
+  font-size: 0.9rem;
+}
+
+mat-sidenav {
+  width: 270px;
+  min-width: 250px;
+  max-width: 270px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.logo {
+  font-size: 1.2rem;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}

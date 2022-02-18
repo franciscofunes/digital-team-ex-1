@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { RandomNumberService } from '../services/randomNumber.service';
+import { RandomNumberService } from '../shared/services/randomNumber.service';
 
 @Injectable({
   providedIn: 'root',

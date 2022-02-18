@@ -1,6 +1,6 @@
-import { Component, ViewEncapsulation } from '@angular/core';
-import { MessagesStore } from '../stores/messages.store';
-import { MESSAGES } from '../messagesDB';
+import { Component } from '@angular/core';
+import { MessagesStore } from '../../stores/messages.store';
+import { MESSAGES } from '../../messagesDB';
 @Component({
   selector: 'digital-team-exercise-sender',
   template: `

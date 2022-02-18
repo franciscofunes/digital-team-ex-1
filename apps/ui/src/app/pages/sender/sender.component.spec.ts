@@ -1,6 +1,6 @@
 import { SenderComponent } from './sender.component';
-import { MessagesStore } from '../stores/messages.store';
-import { MESSAGES } from '../messagesDB';
+import { MessagesStore } from '../../stores/messages.store';
+import { MESSAGES } from '../../messagesDB';
 
 describe('SenderComponent', () => {
   let component: SenderComponent;

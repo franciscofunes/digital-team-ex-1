@@ -1,5 +1,5 @@
 import { MessagesComponent } from './messages.component';
-import { MessagesStore } from '../stores/messages.store';
+import { MessagesStore } from '../../stores/messages.store';
 
 describe('MessagesComponent', () => {
   let component: MessagesComponent;

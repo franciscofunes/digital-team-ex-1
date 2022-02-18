@@ -1,5 +1,5 @@
 import { of } from 'rxjs';
-import { RandomNumberService } from '../services/randomNumber.service';
+import { RandomNumberService } from '../shared/services/randomNumber.service';
 import { RandomNumbersStore } from './randomNumbers.store';
 
 describe('Random Number Store', () => {

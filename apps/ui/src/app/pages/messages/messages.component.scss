@@ -1,0 +1,18 @@
+@import '../../../assets/styles/text.scss';
+@import '../../../assets/styles/colors.scss';
+
+.container {
+  margin: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.mat-body-2 {
+  color: $default-font-color;
+  font-weight: map-get($font-weight, 'bold');
+  text-align: center;
+}
+
+mat-card {
+  width: fit-content;
+}

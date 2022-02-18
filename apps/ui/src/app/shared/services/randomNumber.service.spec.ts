@@ -1,4 +1,4 @@
-import { RandomNumberService } from '../services/randomNumber.service';
+import { RandomNumberService } from './randomNumber.service';
 
 describe('Random Number Service', () => {
   let service: RandomNumberService;

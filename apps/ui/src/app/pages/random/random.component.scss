@@ -1,0 +1,54 @@
+@import '../../../assets/styles/text.scss';
+@import '../../../assets/styles/colors.scss';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.body-1 {
+  font-weight: map-get($font-weight, 'bold');
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.body-2 {
+  font-weight: map-get($font-weight, 'regular');
+  font-size: 0.9rem;
+}
+
+button {
+  transition: all 0.2s ease-in-out;
+}
+
+button:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.random {
+  padding-top: 50px;
+}
+
+.multiple {
+  padding: 50px 0 50px 0;
+}
+
+.btn-dice {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+.calculate-btn {
+  margin: 12px auto;
+  cursor: pointer;
+}
+
+mat-card-title {
+  margin-bottom: 20px;
+}

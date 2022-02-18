@@ -1,4 +1,4 @@
-import { RandomNumbersStore } from '../stores/randomNumbers.store';
+import { RandomNumbersStore } from '../../stores/randomNumbers.store';
 
 import { RandomComponent } from './random.component';
 
