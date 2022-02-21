@@ -7,10 +7,11 @@ import { RandomNumberService } from '../shared/services/randomNumber.service';
 })
 export class RandomNumbersStore {
   randomNumber$?: BehaviorSubject<number>;
-  errorMessage?: string;
+  randomMultiple$?: BehaviorSubject<number>;
 
   constructor(private randomNumberService: RandomNumberService) {
     this.randomNumber$ = new BehaviorSubject(0);
+    this.randomMultiple$ = new BehaviorSubject(0);
   }
 
   fetchRandomNumber() {
@@ -22,5 +23,18 @@ export class RandomNumbersStore {
 
   getRandomNumber(): BehaviorSubject<number> {
     return this.randomNumber$ as BehaviorSubject<number>;
+  }
+
+  fetchRandomMultiple(number: number) {
+    this.randomNumberService
+      .createMultipleRandomNumber(number)
+      .subscribe((result) => {
+        console.log('Response received', result);
+        this.randomMultiple$?.next(result.multipleRandomNumber);
+      });
+  }
+
+  getRandomMultiple(): BehaviorSubject<number> {
+    return this.randomMultiple$ as BehaviorSubject<number>;
   }
 }

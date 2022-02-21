@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs/internal/Observable';
+import { NumericValue } from '../../interfaces/NumericValue';
 import { RandomNumbersStore } from '../../stores/randomNumbers.store';
-// import { Observable } from 'rxjs';
-// import { RandomNumberService } from '../services/randomNumber.service';
 
 @Component({
   selector: 'digital-team-exercise-random',
@@ -27,6 +26,7 @@ import { RandomNumbersStore } from '../../stores/randomNumbers.store';
           </mat-card-content>
         </mat-card>
       </section>
+
       <section class="multiple">
         <mat-card>
           <mat-card-title
@@ -35,22 +35,21 @@ import { RandomNumbersStore } from '../../stores/randomNumbers.store';
           <mat-card-content>
             <form
               [formGroup]="form"
-              (ngSubmit)="saveDetails(form)"
+              (submit)="fetechMultipleRandomNumber()"
               autocomplete="off"
             >
               <div>
                 <mat-form-field appearance="standard">
-                  <mat-label>Number </mat-label>
+                  <mat-label>Number</mat-label>
                   <input
                     type="number"
-                    id="number"
-                    number="number"
+                    name="number"
                     matInput
                     placeholder="Write your number..."
                     formControlName="number"
                     required
                   />
-                  <mat-icon matSuffix>confirmation_number</mat-icon>
+                  <mat-icon matSuffix>swap_vertical_circle</mat-icon>
                   <mat-error *ngIf="number?.hasError('required')">
                     Please enter at least one digit number
                   </mat-error>
@@ -72,17 +71,17 @@ import { RandomNumbersStore } from '../../stores/randomNumbers.store';
                 </button>
               </div>
             </form>
+            <p class="body-2">Multiple: {{ randomMultiple$ | async }}</p>
           </mat-card-content>
         </mat-card>
       </section>
-      <p class="body-1">Multiple: 0</p>
     </div>
   `,
   styleUrls: ['./random.component.scss'],
 })
 export class RandomComponent implements OnInit {
-  dataLoading$ = true;
   randomNumber$?: Observable<number>;
+  randomMultiple$?: Observable<number>;
   form!: FormGroup;
 
   constructor(
@@ -94,18 +93,19 @@ export class RandomComponent implements OnInit {
     this.randomNumbersStore.fetchRandomNumber();
   }
 
-  ngOnInit(): void {
-    this.randomNumber$ = this.randomNumbersStore.getRandomNumber();
-    this.form = this.fb.group({
-      number: [null, [Validators.required, Validators.min(1)]],
-    });
+  public fetechMultipleRandomNumber() {
+    this.randomNumbersStore.fetchRandomMultiple(this.form.value);
   }
 
   get number() {
     return this.form.get('number');
   }
 
-  saveDetails(form: FormGroup) {
-    alert('SUCCESS!! 🙄 \n\n' + JSON.stringify(form.value, null, 4));
+  ngOnInit(): void {
+    this.randomNumber$ = this.randomNumbersStore.getRandomNumber();
+    this.randomMultiple$ = this.randomNumbersStore.getRandomMultiple();
+    this.form = this.fb.group({
+      number: [null, [Validators.required, Validators.min(1)]],
+    });
   }
 }
