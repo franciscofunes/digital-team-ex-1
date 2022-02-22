@@ -12,13 +12,12 @@ export class RandomNumberService {
   constructor(private http: HttpClient) {}
 
   public getRandomNumber(): Observable<any> {
-    return this.http.get<any>(`${this.BASE_URL}/api/random`);
+    return this.http.get<any>(`${this.BASE_URL}/api/random/number`);
   }
 
-  public createMultipleRandomNumber(number: number): Observable<NumericValue> {
-    return this.http.post<NumericValue>(
-      `${this.BASE_URL}/api/create-multiple/`,
-      number
+  public getRandomMultiple(number: number): Observable<NumericValue> {
+    return this.http.get<NumericValue>(
+      `${this.BASE_URL}/api/random/multiple/${number}`
     );
   }
 }

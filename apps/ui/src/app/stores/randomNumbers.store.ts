@@ -14,6 +14,7 @@ export class RandomNumbersStore {
     this.randomMultiple$ = new BehaviorSubject(0);
   }
 
+  // Random Number
   fetchRandomNumber() {
     this.randomNumberService.getRandomNumber().subscribe((result) => {
       console.log('Response received', result);
@@ -25,13 +26,12 @@ export class RandomNumbersStore {
     return this.randomNumber$ as BehaviorSubject<number>;
   }
 
+  //Random Multiple
   fetchRandomMultiple(number: number) {
-    this.randomNumberService
-      .createMultipleRandomNumber(number)
-      .subscribe((result) => {
-        console.log('Response received', result);
-        this.randomMultiple$?.next(result.multipleRandomNumber);
-      });
+    this.randomNumberService.getRandomMultiple(number).subscribe((result) => {
+      console.log('Response received', result);
+      this.randomMultiple$?.next(result.multipleRandomNumber);
+    });
   }
 
   getRandomMultiple(): BehaviorSubject<number> {

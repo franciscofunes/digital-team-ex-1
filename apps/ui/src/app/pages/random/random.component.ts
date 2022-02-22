@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs/internal/Observable';
-import { NumericValue } from '../../interfaces/NumericValue';
 import { RandomNumbersStore } from '../../stores/randomNumbers.store';
 
 @Component({
@@ -35,7 +34,7 @@ import { RandomNumbersStore } from '../../stores/randomNumbers.store';
           <mat-card-content>
             <form
               [formGroup]="form"
-              (submit)="fetechMultipleRandomNumber()"
+              (submit)="fetchRandomMultiple()"
               autocomplete="off"
             >
               <div>
@@ -93,8 +92,8 @@ export class RandomComponent implements OnInit {
     this.randomNumbersStore.fetchRandomNumber();
   }
 
-  public fetechMultipleRandomNumber() {
-    this.randomNumbersStore.fetchRandomMultiple(this.form.value);
+  public fetchRandomMultiple() {
+    this.randomNumbersStore.fetchRandomMultiple(this.form.value.number);
   }
 
   get number() {
@@ -103,7 +102,9 @@ export class RandomComponent implements OnInit {
 
   ngOnInit(): void {
     this.randomNumber$ = this.randomNumbersStore.getRandomNumber();
+
     this.randomMultiple$ = this.randomNumbersStore.getRandomMultiple();
+
     this.form = this.fb.group({
       number: [null, [Validators.required, Validators.min(1)]],
     });

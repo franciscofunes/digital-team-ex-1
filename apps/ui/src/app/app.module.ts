@@ -10,9 +10,10 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/components/header/header.component';
+import { SingleFileComponent } from './pages/single-file/single-file.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent],
+  declarations: [AppComponent, HeaderComponent, SingleFileComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

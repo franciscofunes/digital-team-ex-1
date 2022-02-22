@@ -7,19 +7,16 @@ const routes: Routes = [
     loadChildren: () =>
       import('./pages/home/home.module').then((m) => m.HomeModule),
   },
-  // { path: 'home', component: HomeComponent },
   {
     path: 'home',
     loadChildren: () =>
       import('./pages/home/home.module').then((m) => m.HomeModule),
   },
-  // { path: 'random', component: RandomComponent },
   {
     path: 'random',
     loadChildren: () =>
       import('./pages/random/random.module').then((m) => m.RandomModule),
   },
-  // { path: 'messages', component: WrappMsgSenderComponent },
   {
     path: 'messages',
     loadChildren: () =>
