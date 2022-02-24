@@ -6,6 +6,6 @@ import { Component } from '@angular/core';
     <digital-team-exercise-messages></digital-team-exercise-messages>
     <digital-team-exercise-sender></digital-team-exercise-sender>
   `,
-  styleUrls: ['./wrapp-msg-sender.component.css'],
+  styles: [''],
 })
 export class WrappMsgSenderComponent {}

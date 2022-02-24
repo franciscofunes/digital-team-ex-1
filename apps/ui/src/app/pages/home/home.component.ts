@@ -10,6 +10,6 @@ import { Component } from '@angular/core';
       </h1>
     </div>
   `,
-  styleUrls: ['./home.component.css'],
+  styles: ['.container  { margin: 50px;  text-align: center; }'],
 })
 export class HomeComponent {}

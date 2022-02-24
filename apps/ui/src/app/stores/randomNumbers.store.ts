@@ -1,13 +1,15 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnDestroy } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { RandomNumberService } from '../shared/services/randomNumber.service';
+import { SubSink } from 'subsink';
 
 @Injectable({
   providedIn: 'root',
 })
-export class RandomNumbersStore {
+export class RandomNumbersStore implements OnDestroy {
   randomNumber$?: BehaviorSubject<number>;
   randomMultiple$?: BehaviorSubject<number>;
+  private subs = new SubSink();
 
   constructor(private randomNumberService: RandomNumberService) {
     this.randomNumber$ = new BehaviorSubject(0);
@@ -16,10 +18,12 @@ export class RandomNumbersStore {
 
   // Random Number
   fetchRandomNumber() {
-    this.randomNumberService.getRandomNumber().subscribe((result) => {
-      console.log('Response received', result);
-      this.randomNumber$?.next(result.randomNumber);
-    });
+    this.subs.sink = this.randomNumberService
+      .getRandomNumber()
+      .subscribe((result) => {
+        console.log('Response received', result);
+        this.randomNumber$?.next(result.randomNumber);
+      });
   }
 
   getRandomNumber(): BehaviorSubject<number> {
@@ -28,13 +32,19 @@ export class RandomNumbersStore {
 
   //Random Multiple
   fetchRandomMultiple(number: number) {
-    this.randomNumberService.getRandomMultiple(number).subscribe((result) => {
-      console.log('Response received', result);
-      this.randomMultiple$?.next(result.multipleRandomNumber);
-    });
+    this.subs.sink = this.randomNumberService
+      .getRandomMultiple(number)
+      .subscribe((result) => {
+        console.log('Response received', result);
+        this.randomMultiple$?.next(result.multipleRandomNumber);
+      });
   }
 
   getRandomMultiple(): BehaviorSubject<number> {
     return this.randomMultiple$ as BehaviorSubject<number>;
+  }
+
+  ngOnDestroy(): void {
+    this.subs.unsubscribe();
   }
 }

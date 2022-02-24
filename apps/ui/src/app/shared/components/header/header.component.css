@@ -32,3 +32,11 @@ mat-sidenav {
 .example-spacer {
   flex: 1 1 auto;
 }
+
+.code-icon {
+  color: #f44336;
+}
+
+.hide {
+  display: none;
+}

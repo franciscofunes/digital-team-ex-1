@@ -8,13 +8,21 @@ import { Component } from '@angular/core';
       <mat-sidenav #sidenav mode="over" opened="false" position="end">
         <mat-nav-list>
           <span mat-list-item></span>
-          <a mat-list-item routerLink="home" (click)="sidenav.toggle()">Home</a>
-          <a mat-list-item routerLink="messages" (click)="sidenav.toggle()"
-            >Messages</a
-          >
-          <a mat-list-item routerLink="random" (click)="sidenav.toggle()"
-            >Random</a
-          >
+          <digital-team-exercise-navitem
+            routerLink="home"
+            linkContent="Home"
+            [sideNav]="sidenav"
+          ></digital-team-exercise-navitem>
+          <digital-team-exercise-navitem
+            routerLink="messages"
+            linkContent="Messages"
+            [sideNav]="sidenav"
+          ></digital-team-exercise-navitem>
+          <digital-team-exercise-navitem
+            routerLink="random"
+            linkContent="Random"
+            [sideNav]="sidenav"
+          ></digital-team-exercise-navitem>
         </mat-nav-list>
       </mat-sidenav>
 
@@ -32,7 +40,9 @@ import { Component } from '@angular/core';
           </button>
           <div class="logo">
             <a routerLink="/"
-              >| Digi-Team <mat-icon style="color: #f44336">code</mat-icon> |</a
+              >| Digi-Team
+              <mat-icon class="code-icon">code</mat-icon>
+              |</a
             >
           </div>
           <span class="example-spacer"></span>
