@@ -27,6 +27,7 @@ describe('Random Number Store', () => {
     store.fetchRandomNumber();
     // assert
     expect(randomNumberService.getRandomNumber).toHaveBeenCalled();
+    expect(store.getRandomNumber().value).toBe('10');
   });
 
   test('Get Random Number', () => {

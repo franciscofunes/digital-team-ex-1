@@ -6,9 +6,8 @@ import { MatModule } from './mat/mat.module';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './shared/components/header/header.component';
-import { NavItemComponent } from './shared/components/UI/navitem/navItem.component';
 import { SharedModule } from './shared/shared.module';
+import { RandomNumberService } from './shared/services/randomNumber.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,7 +19,7 @@ import { SharedModule } from './shared/shared.module';
     MatModule,
     SharedModule,
   ],
-  providers: [],
+  providers: [RandomNumberService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

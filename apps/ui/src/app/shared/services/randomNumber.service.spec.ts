@@ -28,4 +28,16 @@ describe('Random Number Service', () => {
     // assert
     expect(HttpClientMock.get).toHaveBeenCalledWith(apiUrl);
   });
+
+  test('Get random multiple', () => {
+    // arrange
+    const number = 10;
+    const apiUrl = `http://localhost:3333/api/random/multiple/${number}`;
+
+    // act
+    service.getRandomMultiple(number);
+
+    // assert
+    expect(HttpClientMock.get).toHaveBeenCalledWith(apiUrl);
+  });
 });
