@@ -2,10 +2,13 @@
 @import '../../../assets/styles/colors.scss';
 
 .container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  // display: flex;
+  // flex-direction: column;
+  // align-items: center;
+  // justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr / 1fr;
+  place-items: center;
 }
 
 .body-1 {

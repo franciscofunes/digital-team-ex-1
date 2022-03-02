@@ -2,9 +2,13 @@
 @import '../../../assets/styles/colors.scss';
 
 .container {
-  margin: 50px;
-  display: flex;
-  justify-content: center;
+  // margin: 50px;
+  // display: flex;
+  // justify-content: center;
+  display: grid;
+  grid-template: 1fr / 1fr;
+  place-items: center;
+  gap: 5x;
 }
 
 .mat-body-2 {
@@ -15,4 +19,5 @@
 
 mat-card {
   width: fit-content;
+  margin: 50px;
 }
