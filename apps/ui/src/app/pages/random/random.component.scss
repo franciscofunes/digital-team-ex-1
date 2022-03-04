@@ -1,0 +1,57 @@
+@import '../../../assets/styles/text.scss';
+@import '../../../assets/styles/colors.scss';
+
+.container {
+  // display: flex;
+  // flex-direction: column;
+  // align-items: center;
+  // justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr / 1fr;
+  place-items: center;
+}
+
+.body-1 {
+  font-weight: map-get($font-weight, 'bold');
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.body-2 {
+  font-weight: map-get($font-weight, 'bold');
+  font-size: 1rem;
+  margin-top: 10px;
+}
+
+button {
+  transition: all 0.2s ease-in-out;
+}
+
+button:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.random {
+  padding-top: 50px;
+}
+
+.multiple {
+  padding: 50px 0 50px 0;
+}
+
+.btn-dice {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+mat-card-title {
+  margin-bottom: 20px;
+}
+
+mat-card {
+  width: 300px;
+}

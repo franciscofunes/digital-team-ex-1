@@ -1,5 +1,5 @@
 import { of } from 'rxjs';
-import { RandomNumberService } from '../services/randomNumber.service';
+import { RandomNumberService } from '../shared/services/randomNumber.service';
 import { RandomNumbersStore } from './randomNumbers.store';
 
 describe('Random Number Store', () => {
@@ -27,6 +27,7 @@ describe('Random Number Store', () => {
     store.fetchRandomNumber();
     // assert
     expect(randomNumberService.getRandomNumber).toHaveBeenCalled();
+    expect(store.getRandomNumber().value).toBe('10');
   });
 
   test('Get Random Number', () => {

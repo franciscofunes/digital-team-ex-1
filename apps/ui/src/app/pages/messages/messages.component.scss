@@ -1,0 +1,23 @@
+@import '../../../assets/styles/text.scss';
+@import '../../../assets/styles/colors.scss';
+
+.container {
+  // margin: 50px;
+  // display: flex;
+  // justify-content: center;
+  display: grid;
+  grid-template: 1fr / 1fr;
+  place-items: center;
+  gap: 5x;
+}
+
+.mat-body-2 {
+  color: $default-font-color;
+  font-weight: map-get($font-weight, 'bold');
+  text-align: center;
+}
+
+mat-card {
+  width: fit-content;
+  margin: 50px;
+}

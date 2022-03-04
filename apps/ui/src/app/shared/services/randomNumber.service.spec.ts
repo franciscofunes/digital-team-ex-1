@@ -1,4 +1,4 @@
-import { RandomNumberService } from '../services/randomNumber.service';
+import { RandomNumberService } from './randomNumber.service';
 
 describe('Random Number Service', () => {
   let service: RandomNumberService;
@@ -24,6 +24,18 @@ describe('Random Number Service', () => {
 
     // act
     service.getRandomNumber();
+
+    // assert
+    expect(HttpClientMock.get).toHaveBeenCalledWith(apiUrl);
+  });
+
+  test('Get random multiple', () => {
+    // arrange
+    const number = 10;
+    const apiUrl = `http://localhost:3333/api/random/multiple/${number}`;
+
+    // act
+    service.getRandomMultiple(number);
 
     // assert
     expect(HttpClientMock.get).toHaveBeenCalledWith(apiUrl);

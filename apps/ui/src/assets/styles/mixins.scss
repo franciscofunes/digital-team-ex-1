@@ -1,0 +1,67 @@
+/*
+ * Example 1. of mixin usage Flexbox
+ */
+
+@mixin flexible($display, $direction, $justify, $align, $wrap) {
+  display: $display;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  flex-wrap: $wrap;
+}
+
+// Implementation
+
+container {
+  @include flexible('flex', 'row', 'space-between', 'center', 'wrap');
+}
+
+section {
+  @include flexible('flex', 'column', 'space-around', 'center', 'nowrap');
+}
+
+/*
+ * Example 2. of mixin usage Grid system
+ */
+
+@mixin grid($columns, $rows, $space) {
+  display: grid;
+  grid-template: repeat($columns, 1fr) / repeat($rows, 1fr);
+  gap: $space;
+
+  @media screen and (max-width: 480px) {
+    grid-template: 1fr / 1fr;
+    gap: 0em;
+  }
+}
+
+// Implementation
+
+main {
+  @include grid(4, 4, 1em);
+}
+
+section {
+  @include grid(2, 2, 1em);
+}
+
+/*
+ * Example 3. of mixin for Responsive design
+ */
+
+@mixin responsive($breakpoint: 480px) {
+  @media screen and (max-width: $breakpoint) {
+    @content;
+  }
+}
+
+// Implementation
+
+article {
+  @include responsive(768px) {
+    width: 50%;
+  }
+  @include responsive() {
+    width: 100%;
+  }
+}
